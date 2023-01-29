@@ -20,7 +20,6 @@ export const fetchPizzas = createAsyncThunk<Pizza[], SearchPizzaParams>(
         identity,
       ),
     });
-
     return data;
   },
 );
