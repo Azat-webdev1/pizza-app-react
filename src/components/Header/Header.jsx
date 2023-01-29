@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 
 import logoSvg from '../../assets/img/pizza-logo.svg';
 import { Search } from '..';
+
 import style from './Header.module.scss';
+
 
 export const Header = () => {
   return (
