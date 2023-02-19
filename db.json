@@ -2,10 +2,10 @@
   "pizzaLists": [{
     "id": "0",
     "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
-    "title": "Пепперони Фреш с перцем",
+    "title": "Пепперони с перцем",
     "types": [0, 1],
     "sizes": [26, 30, 40],
-    "price": 803,
+    "price": 804,
     "category": 1,
     "rating": 4
   }, {
@@ -93,7 +93,7 @@
     "0": {
       "id": 0,
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
-      "title": "Пепперони Фреш с перцем",
+      "title": "Пепперони с перцем",
       "types": [0, 1],
       "sizes": [26, 30, 40],
       "price": 803,
@@ -189,16 +189,12 @@
       "price": 285,
       "category": 5,
       "rating": 7
-    },
-    "createdAt": "2022-09-25T21:16:04.926Z",
-    "name": "Lionel Lockman",
-    "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1079.jpg",
-    "id": "10"
+    }
   }, {
     "0": {
       "id": 0,
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
-      "title": "Пепперони Фреш с перцем",
+      "title": "Пепперони с перцем",
       "types": [0, 1],
       "sizes": [26, 30, 40],
       "price": 803,
@@ -294,16 +290,12 @@
       "price": 285,
       "category": 5,
       "rating": 7
-    },
-    "createdAt": "2022-09-26T18:27:53.729Z",
-    "name": "Greg Rogahn Sr.",
-    "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/895.jpg",
-    "id": "10"
+    }
   }, {
     "0": {
       "id": 0,
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
-      "title": "Пепперони Фреш с перцем",
+      "title": "Пепперони с перцем",
       "types": [0, 1],
       "sizes": [26, 30, 40],
       "price": 803,
@@ -399,11 +391,7 @@
       "price": 285,
       "category": 5,
       "rating": 7
-    },
-    "createdAt": "2022-09-26T00:28:46.848Z",
-    "name": "Vanessa Beier III",
-    "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/479.jpg",
-    "id": "10"
+    }
   }, {
     "0": {
       "id": 0,
@@ -618,7 +606,7 @@
     "0": {
       "id": 0,
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
-      "title": "Пепперони Фреш с перцем",
+      "title": "Пепперони с перцем",
       "types": [0, 1],
       "sizes": [26, 30, 40],
       "price": 803,
@@ -723,7 +711,7 @@
     "0": {
       "id": 0,
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
-      "title": "Пепперони Фреш с перцем",
+      "title": "Пепперони с перцем",
       "types": [0, 1],
       "sizes": [26, 30, 40],
       "price": 803,
@@ -828,7 +816,7 @@
     "0": {
       "id": 0,
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
-      "title": "Пепперони Фреш с перцем",
+      "title": "Пепперони с перцем",
       "types": [0, 1],
       "sizes": [26, 30, 40],
       "price": 803,
@@ -933,7 +921,7 @@
     "0": {
       "id": 0,
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
-      "title": "Пепперони Фреш с перцем",
+      "title": "Пепперони с перцем",
       "types": [0, 1],
       "sizes": [26, 30, 40],
       "price": 803,
@@ -1038,7 +1026,7 @@
     "0": {
       "id": 0,
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
-      "title": "Пепперони Фреш с перцем",
+      "title": "Пепперони с перцем",
       "types": [0, 1],
       "sizes": [26, 30, 40],
       "price": 803,
@@ -1143,7 +1131,7 @@
     "0": {
       "id": 0,
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
-      "title": "Пепперони Фреш с перцем",
+      "title": "Пепперони с перцем",
       "types": [0, 1],
       "sizes": [26, 30, 40],
       "price": 803,
@@ -1248,7 +1236,7 @@
     "0": {
       "id": 0,
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
-      "title": "Пепперони Фреш с перцем",
+      "title": "Пепперони с перцем",
       "types": [0, 1],
       "sizes": [26, 30, 40],
       "price": 803,

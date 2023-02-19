@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link, useLocation } from 'react-router-dom';
 
 import logoSvg from '../../assets/img/pizza-logo.svg';
 import { Search } from '..';
@@ -9,6 +8,8 @@ import style from './Header.module.scss';
 
 
 export const Header = () => {
+  const location = useLocation();
+  
   return (
     <div className={style.header}>
       <div className={style.container}>

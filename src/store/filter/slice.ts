@@ -4,6 +4,7 @@ import { FilterSliceState } from './types';
 
 const initialState: FilterSliceState = {
   currentPage: 1,
+  searchValue: '',
 };
 
 const filterSlice = createSlice({
@@ -12,6 +13,9 @@ const filterSlice = createSlice({
   reducers: {
     setCurrentPage(state, action: PayloadAction<number>) {
       state.currentPage = action.payload;
+    },
+    setSearchValue(state, action: PayloadAction<string>) {
+      state.searchValue = action.payload;
     },
     setFilters(state, action: PayloadAction<FilterSliceState>) {
       if (Object.keys(action.payload).length) {
@@ -23,6 +27,6 @@ const filterSlice = createSlice({
   },
 });
 
-export const { setCurrentPage, setFilters } = filterSlice.actions;
+export const { setCurrentPage, setFilters, setSearchValue } = filterSlice.actions;
 
 export default filterSlice.reducer;

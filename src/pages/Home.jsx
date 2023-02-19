@@ -19,16 +19,18 @@ import {
 const Home = () => {
   const dispatch = useAppDispatch();
   const { items, status } = useSelector(selectPizzaData);
-  const { currentPage } = useSelector(selectFilter);
+  const { currentPage, searchValue } = useSelector(selectFilter);
 
   const onChangePage = (page) => {
     dispatch(setCurrentPage(page));
   };
 
   const getPizzas = async () => {
+    const search = searchValue;
     dispatch(
       fetchPizzas({
         currentPage: String(currentPage),
+        search
       })
     );
     window.scrollTo(0, 0);
@@ -36,9 +38,11 @@ const Home = () => {
 
   React.useEffect(() => {
     getPizzas();
-  }, [currentPage]);
+  }, [currentPage, searchValue]);
 
   const pizzas = items
+    .filter((item) => item.title?.toLowerCase()
+    .includes(searchValue.toLowerCase()))
     .slice(0, 8)
     .map((obj) => <PizzaBlock key={obj.id} {...obj} />);
   

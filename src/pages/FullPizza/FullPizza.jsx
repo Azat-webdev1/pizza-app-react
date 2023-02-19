@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import style from './FullPizza.module.scss';
 
+
 const FullPizza = () => {
   const [pizza, setPizza] = React.useState();
   const { id } = useParams();
