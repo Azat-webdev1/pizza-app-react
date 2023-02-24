@@ -2,6 +2,7 @@ import React from 'react';
 
 import style from './Categories.module.scss';
 
+
 const categories = ['Все', 'Острые', 'Закрытые', 'Гриль', 'Мясные', 'Вегетарианская'];
 
 export const Categories = React.memo(({ value, onChangeCategory }) => {

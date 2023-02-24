@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { useAppDispatch } from '../store/';
 import { selectFilter } from '../store/filter/selectors';
-import { setCurrentPage } from '../store/filter/slice';
+import { setCategoryId, setCurrentPage } from '../store/filter/slice';
 import { fetchPizzas } from '../store/pizza/asyncActions';
 import { selectPizzaData } from '../store/pizza/selectors';
 
@@ -19,7 +19,11 @@ import {
 const Home = () => {
   const dispatch = useAppDispatch();
   const { items, status } = useSelector(selectPizzaData);
-  const { currentPage, searchValue } = useSelector(selectFilter);
+  const { categoryId, currentPage, searchValue } = useSelector(selectFilter);
+  
+  const onChangeCategory = React.useCallback((idx) => {
+    dispatch(setCategoryId(idx));
+  }, []);
 
   const onChangePage = (page) => {
     dispatch(setCurrentPage(page));
@@ -27,10 +31,12 @@ const Home = () => {
 
   const getPizzas = async () => {
     const search = searchValue;
+    const category = categoryId > 0 ? String(categoryId) : '';
     dispatch(
       fetchPizzas({
         currentPage: String(currentPage),
-        search
+        search,
+        category,
       })
     );
     window.scrollTo(0, 0);
@@ -38,7 +44,7 @@ const Home = () => {
 
   React.useEffect(() => {
     getPizzas();
-  }, [currentPage, searchValue]);
+  }, [currentPage, searchValue, categoryId]);
 
   const pizzas = items
     .filter((item) => item.title?.toLowerCase()
@@ -54,7 +60,8 @@ const Home = () => {
     <div className="container">
       <div className="content__top">
         <Categories
-          value={0}
+          value={categoryId}
+          onChangeCategory={onChangeCategory} 
         />
         <Sort />
       </div>

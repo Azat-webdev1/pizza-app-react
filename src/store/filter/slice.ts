@@ -5,12 +5,16 @@ import { FilterSliceState } from './types';
 const initialState: FilterSliceState = {
   currentPage: 1,
   searchValue: '',
+  categoryId: 0
 };
 
 const filterSlice = createSlice({
   name: 'filters',
   initialState,
   reducers: {
+    setCategoryId(state, action: PayloadAction<number>) {
+      state.categoryId = action.payload;
+    },
     setCurrentPage(state, action: PayloadAction<number>) {
       state.currentPage = action.payload;
     },
@@ -20,13 +24,15 @@ const filterSlice = createSlice({
     setFilters(state, action: PayloadAction<FilterSliceState>) {
       if (Object.keys(action.payload).length) {
         state.currentPage = Number(action.payload.currentPage);
+        state.categoryId = Number(action.payload.categoryId);
       } else {
         state.currentPage = 1;
+        state.categoryId = 0;
       }
     },
   },
 });
 
-export const { setCurrentPage, setFilters, setSearchValue } = filterSlice.actions;
+export const { setCategoryId, setCurrentPage, setFilters, setSearchValue } = filterSlice.actions;
 
 export default filterSlice.reducer;
