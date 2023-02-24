@@ -13,7 +13,7 @@ const FullPizza = () => {
   React.useEffect(() => {
     async function fetchPizza() {
       try {
-        const { data } = await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/pizzaLists/` + id);
+        const { data } = await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/pizzas/` + id);
         setPizza(data);
       } catch (error) {
         alert('Ошибка при получении пиццы!');

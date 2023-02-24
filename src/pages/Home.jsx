@@ -19,7 +19,7 @@ import {
 const Home = () => {
   const dispatch = useAppDispatch();
   const { items, status } = useSelector(selectPizzaData);
-  const { categoryId, currentPage, searchValue } = useSelector(selectFilter);
+  const { sort, categoryId, currentPage, searchValue } = useSelector(selectFilter);
   
   const onChangeCategory = React.useCallback((idx) => {
     dispatch(setCategoryId(idx));
@@ -32,11 +32,13 @@ const Home = () => {
   const getPizzas = async () => {
     const search = searchValue;
     const category = categoryId > 0 ? String(categoryId) : '';
+    const sortBy = sort.sortProperty.replace('-', '');
     dispatch(
       fetchPizzas({
         currentPage: String(currentPage),
         search,
         category,
+        sortBy,
       })
     );
     window.scrollTo(0, 0);
@@ -44,12 +46,11 @@ const Home = () => {
 
   React.useEffect(() => {
     getPizzas();
-  }, [currentPage, searchValue, categoryId]);
+  }, [sort.sortProperty, currentPage, searchValue, categoryId]);
 
   const pizzas = items
     .filter((item) => item.title?.toLowerCase()
     .includes(searchValue.toLowerCase()))
-    .slice(0, 8)
     .map((obj) => <PizzaBlock key={obj.id} {...obj} />);
   
   const skeletons = [...new Array(6)].map((_, index) => (
@@ -63,7 +64,7 @@ const Home = () => {
           value={categoryId}
           onChangeCategory={onChangeCategory} 
         />
-        <Sort />
+        <Sort value={sort} />
       </div>
       <h2 className="content__title">Все пиццы</h2>
       {status === "error" ? (
