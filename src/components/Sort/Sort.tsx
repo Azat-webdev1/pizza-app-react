@@ -31,7 +31,7 @@ export const sortList: SortItem[] = [
 export const Sort: React.FC<SortPopupProps> = (({ value }) => {
   const dispatch = useDispatch();
   const sortRef = React.useRef<HTMLDivElement>(null);
-  const [open, setOpen] = React.useState<boolean>(false);
+  const [open, setOpen] = React.useState(false);
 
   const onClickListItem = (obj: SortItem) => {
     dispatch(setSort(obj));
@@ -41,7 +41,7 @@ export const Sort: React.FC<SortPopupProps> = (({ value }) => {
   React.useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       const _event = e as PopupClick;
-      if (sortRef.current && !_event.path?.includes(sortRef.current)) {
+      if (sortRef.current && !_event.path.includes(sortRef.current)) {
         setOpen(false);
       }
     };

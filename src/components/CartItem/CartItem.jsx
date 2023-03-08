@@ -1,28 +1,54 @@
 import React from 'react';
 import cn from 'classnames';
 import style from './CartItem.module.scss';
+import { useDispatch } from 'react-redux';
+import { addItem, minusItem, removeItem } from '../../store/cart/slice';
 
 
-export const CartItem = () => {
+export const CartItem= ({
+  id,
+  title,
+  type,
+  size,
+  price,
+  count,
+  imageUrl,
+}) => {
+  const dispatch = useDispatch();
+
+  const onClickPlus = () => {
+    dispatch(
+      addItem({
+        id,
+      }),
+    );
+  };
+
+  const onClickMinus = () => {
+    dispatch(minusItem(id));
+  };
+
   const onClickRemove = () => {
     if (window.confirm('Ты действительно хочешь удалить товар?')) {
-
+      dispatch(removeItem(id));
     }
   };
+
   return (
     <div className={style["cart__item"]}>
       <div className={style["cart__item-img"]}>
-        <img className="pizza-block__image" src="" alt="Pizza" />
+        <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
       </div>
       <div className={style["cart__item-info"]}>
-        <h3>Пицца</h3>
+        <h3>{title}</h3>
         <p>
-          тонкий, 35 см.
+        {type}, {size} см.
         </p>
       </div>
       <div className={style["cart__item-count"]}>
         <button
-          disabled
+          disabled={count === 1}
+          onClick={onClickMinus}
           className={cn(
             "button",
             "button--outline",
@@ -43,8 +69,9 @@ export const CartItem = () => {
               fill="#EB5A1E"></path>
           </svg>
         </button>
-        <b></b>
+        <b>{count}</b>
         <button
+          onClick={onClickPlus}
           className={cn(
             "button",
             "button--outline",
@@ -67,7 +94,7 @@ export const CartItem = () => {
         </button>
       </div>
       <div className={style["cart__item-price"]}>
-        <b>1000 ₽</b>
+        <b>{price * count} ₽</b>
       </div>
       <div className={style["cart__item-remove"]}>
         <div onClick={onClickRemove}

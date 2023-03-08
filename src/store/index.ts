@@ -3,12 +3,13 @@ import { useDispatch } from 'react-redux';
 
 import pizza from './pizza/slice';
 import filters from './filter/slice';
-
+import cart from './cart/slice';
 
 export const store = configureStore({
   reducer: {
     pizza,
-    filters
+    filters,
+    cart
   },
 });
 

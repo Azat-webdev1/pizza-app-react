@@ -1,16 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CartItem } from '../../components';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { selectCart } from '../../store/cart/selectors';
+import { clearItems } from '../../store/cart/slice';
+import { CartItem, CartEmpty } from '../../components';
 
 import style from './Cart.module.scss';
 
 
 const Cart = () => {
+  const dispatch = useDispatch();
+  const { totalPrice, items } = useSelector(selectCart);
+
+  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
 
   const onClickClear = () => {
     if (window.confirm('Очистить корзину?')) {
+      dispatch(clearItems());
     }
   };
+
+  if (!totalPrice) {
+    return <CartEmpty />;
+  }
+
   return (
     <div className="container container--cart">
       <div className={style.cart}>
@@ -80,17 +94,19 @@ const Cart = () => {
           </div>
         </div>
         <div className={style["content__items"]}>
-          <CartItem />
+          {items.map((item) => (
+            <CartItem key={item.id} {...item} />
+          ))}
         </div>
         <div className={style["cart__bottom"]}>
           <div className={style["cart__bottom-details"]}>
             <span>
               {' '}
-              Всего пицц: <b>1 шт.</b>{' '}
+              Всего пицц: <b>{totalCount} шт.</b>{' '}
             </span>
             <span>
               {' '}
-              Сумма заказа: <b>1000 ₽</b>{' '}
+              Сумма заказа: <b>{totalPrice} ₽</b>{' '}
             </span>
           </div>
           <div className={style["cart__bottom-buttons"]}>
