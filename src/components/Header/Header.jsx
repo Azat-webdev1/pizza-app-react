@@ -1,15 +1,29 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import logoSvg from '../../assets/img/pizza-logo.svg';
 import { Search } from '..';
+import { selectCart } from '../../store/cart/selectors';
 
 import style from './Header.module.scss';
 
 
 export const Header = () => {
+  const { items, totalPrice } = useSelector(selectCart);
   const location = useLocation();
+  const isMounted = React.useRef(false);
   
+  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+
+  React.useEffect(() => {
+    if (isMounted.current) {
+      const json = JSON.stringify(items);
+      localStorage.setItem('cart', json);
+    }
+    isMounted.current = true;
+  }, [items]);
+
   return (
     <div className={style.header}>
       <div className={style.container}>
@@ -26,7 +40,7 @@ export const Header = () => {
         <div className={style["header__cart"]}>
           {location.pathname !== '/cart' && (
             <Link to="/cart" className="button button--cart">
-              <span> ₽</span>
+              <span>{totalPrice} ₽</span>
               <div className="button__delimiter"></div>
               <svg
                 width="18"
@@ -56,7 +70,7 @@ export const Header = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span></span>
+              <span>{totalCount}</span>
             </Link>
           )}
         </div>

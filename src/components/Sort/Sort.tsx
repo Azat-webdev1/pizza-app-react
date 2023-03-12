@@ -71,7 +71,7 @@ export const Sort: React.FC<SortPopupProps> = (({ value }) => {
           <ul>
           {sortList.map((obj, i) => (
               <li
-                key={i}
+                key={i + obj.name}
                 onClick={() => onClickListItem(obj)}
                 className={value.sortProperty === obj.sortProperty ? style["active"] : ''}>
                 {obj.name}

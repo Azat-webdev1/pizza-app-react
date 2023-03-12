@@ -47,6 +47,7 @@ export const CartItem= ({
       </div>
       <div className={style["cart__item-count"]}>
         <button
+          type="button"
           disabled={count === 1}
           onClick={onClickMinus}
           className={cn(
@@ -70,7 +71,7 @@ export const CartItem= ({
           </svg>
         </button>
         <b>{count}</b>
-        <button
+        <button type="button"
           onClick={onClickPlus}
           className={cn(
             "button",
